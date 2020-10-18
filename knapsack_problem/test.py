@@ -21,13 +21,13 @@ def generate_test(n, w):
 
 
 def get_price(items, mask):
-    price, weigth = 0, 0
+    price, weight = 0, 0
     for i in range(len(items)):
         if mask % 2:
             price += items[i].p
-            weigth += items[i].w
+            weight += items[i].w
         mask //= 2
-    return price, weigth
+    return price, weight
 
 
 def parse_file(filename='input.txt'):
@@ -43,8 +43,8 @@ def naive_solution(n, w, items):
     best_price = 0
     best_solution = 0
     for mask in range(0, 2 ** n):
-        current_price, current_weigth = get_price(items, mask)
-        if current_weigth <= w and current_price > best_price:
+        current_price, current_weight = get_price(items, mask)
+        if current_weight <= w and current_price > best_price:
             best_price = current_price
             best_solution = mask
     return best_price, best_solution
