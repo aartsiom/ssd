@@ -7,7 +7,7 @@ from random import randint
 def generate_random_request(n):
     req_id = randint(1, 4)
     if req_id == 1:
-        return '{} {} {}'.format(req_id, randint(1, n), randint(0, 20))
+        return '{} {} {}'.format(req_id, randint(1, n), randint(0, 1000000000))
 
     a, b = randint(1, n), randint(1, n)
     return '{} {} {}'.format(req_id, min(a, b), max(a, b))
@@ -15,7 +15,7 @@ def generate_random_request(n):
 
 def generate_test(n, q):
     test_input = [str(n) + ' ' + str(q)]
-    test_input.append(' '.join([str(randint(0, 20)) for _ in range(n)]))
+    test_input.append(' '.join([str(randint(0, 1000000000)) for _ in range(n)]))
     for _ in range(q):
         test_input.append(generate_random_request(n))
     with open('input.txt', 'w') as f:
