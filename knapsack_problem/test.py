@@ -56,9 +56,10 @@ def is_eq_solution():
     n, w, items = parse_file()
     best_price, best_solution = naive_solution(n, w, items)
     current_price = sum([items[i-1].p for i in res])
+    current_weight = sum([items[i-1].w for i in res])
     # print(best_solution, ''.join(str(x) for x in res))
     print(current_price, best_price)
-    return current_price == best_price
+    return current_price == best_price and current_weight <= w
 
 
 def test(n, w):
