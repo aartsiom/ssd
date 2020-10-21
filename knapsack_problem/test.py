@@ -57,8 +57,12 @@ def is_eq_solution():
     best_price, best_solution = naive_solution(n, w, items)
     current_price = sum([items[i-1].p for i in res])
     current_weight = sum([items[i-1].w for i in res])
-    # print(best_solution, ''.join(str(x) for x in res))
-    print(current_price, best_price)
+    print('*' * 10)
+    print('best solution: {}'.format(' '.join([str(i+1) for i in range(n) if best_solution & 1 << i])))
+    print('my solution: {}'.format(' '.join(str(x) for x in res)))
+    print('current_price: {}'.format(current_price))
+    print('best_price: {}'.format(best_price))
+    print('*' * 10)
     return current_price == best_price and current_weight <= w
 
 
